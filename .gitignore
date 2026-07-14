@@ -5,6 +5,9 @@ build/
 dist/
 wheels/
 *.egg-info
+AGENTS.md
+uv.lock
+产品需求.md
 
 # Virtual environments
 .venv/
