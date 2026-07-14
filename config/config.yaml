@@ -1,0 +1,51 @@
+# AIME 后端配置文件
+# ====================
+
+# --- 大模型 ---
+model:
+  path: "F:/QWen/qwen2.5-1.5b-instruct-q4_k_m.gguf"
+  n_ctx: 32768
+  n_gpu_layers: -1
+
+# --- TCP 服务器 ---
+server:
+  host: "127.0.0.1"
+  port: 5000
+  buffer_size: 4096
+
+# --- UIA 上下文抓取 ---
+context:
+  max_chars: 150          # 光标前抓取最大字符数
+  poll_interval: 0.5      # 看门狗轮询间隔(秒)
+  uia_timeout: 0.3        # UIA 全局搜索超时(秒)
+
+# --- 推理引擎 ---
+inference:
+  short_context_chars: 100    # 送入模型的上下文长度
+  max_candidates: 5           # 发送给模型的前N个候选词
+  temperature: 0.0            # 贪心解码
+  max_tokens: 6               # 模型单次输出上限
+  stop_tokens:
+    - "\n"
+    - "。"
+    - "，"
+    - "、"
+  phase2_min_pinyin_len: 3    # Phase2 触发的最小拼音长度
+  pinyin_threshold: 0.60      # 拼音碰撞相似度阈值
+  max_generated_word_len: 5   # 生成词最大长度
+
+# --- 日志 ---
+logging:
+  level: "INFO"           # DEBUG | INFO | WARNING | ERROR
+  dir: "logs"             # 日志目录
+  file: "aime.log"        # 日志文件名
+  max_bytes: 10485760     # 单个日志文件最大字节(10MB)
+  backup_count: 3         # 保留的历史日志文件数
+
+# --- 记忆体系 ---
+memory:
+  db_path: "data/memory.db"       # SQLite 数据库路径
+  max_records: 10000              # 最大记录数
+  max_age_days: 30                # 记录最大保留天数
+  cleanup_interval: 3600          # 清理间隔(秒)
+  context_hash_len: 50            # 上下文 hash 截取长度

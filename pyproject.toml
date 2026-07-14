@@ -1,0 +1,33 @@
+[project]
+name = "aimebackend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    #    "llama-cpp-python==0.3.4",
+    "flask",
+    "numpy",
+    "ruff",
+    "uiautomation",
+    "pyperclip",
+    "pyautogui",
+    "keyboard",
+    "pywin32",
+    "pypinyin",
+    "pyyaml",
+    "llama-cpp-python",
+]
+
+[[tool.uv.index]]
+name = "llama-cpp-py"
+url = "https://abetlen.github.io/llama-cpp-python/whl/cu124"
+explicit = true
+
+
+[[tool.uv.index]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+
+[tool.uv.sources]
+llama-cpp-python = { path = "F:/QWen/llama_cpp_python-0.3.4-cp312-cp312-win_amd64.whl" }
