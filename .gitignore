@@ -10,5 +10,6 @@ wheels/
 .venv
 .candence
 .mimocode
+.idea
 etc/
 logs/
