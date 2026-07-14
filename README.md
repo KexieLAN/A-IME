@@ -60,7 +60,7 @@
 1. **克隆项目**
    ```bash
    git clone https://github.com/KexieLAN/A-IME.git
-   cd AIMEBackend
+   cd A-IME
    ```
 
 2. **安装依赖**
@@ -92,16 +92,6 @@
    # 或使用 uv
    uv run python main.py
    ```
-
-### 构建 llama-cpp-python（可选）
-
-如果需要从源码构建支持 CUDA 的 llama-cpp-python：
-
-```powershell
-$env:CMAKE_ARGS="-DGGML_CUDA=on"
-$env:CMAKE_ARGS = "-DGGML_CUDA=on -DCMAKE_C_COMPILER=D:/mingw64/bin/gcc.exe -DCMAKE_CXX_COMPILER=D:/mingw64/bin/g++.exe"
-pip install llama-cpp-python --no-cache-dir
-```
 
 ## 配置说明
 
